@@ -1,0 +1,22 @@
+{
+  "name": "pg-json-api",
+  "version": "1.0.0",
+  "description": "A thin json api around one or many postgres databases.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/mhkeller/pg-json-api"
+  },
+  "keywords": [
+    "postgresql"
+  ],
+  "author": "Michael Keller",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mhkeller/pg-json-api/issues"
+  },
+  "homepage": "https://github.com/mhkeller/pg-json-api"
+}
