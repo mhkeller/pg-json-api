@@ -3,7 +3,7 @@ Postgres json api
 
 A thin json api around one or many postgres databases. Adapted from [brianc](https://github.com/brianc/node-postgres/wiki/Example).
 
-Send it a URL such as the one below and return a json response. Specify which database you want to connect to along with a query. It requires a superuser named `postgres`, which you can create with `createuser -s -r postgres`, or change the `con_string` variable to your desired connection string.
+Send it a URL such as the one below and return a json response. Specify which database you want to connect to along with a query. It requires a superuser named `postgres`, which you can create with `createuser -s -r postgres`, or change the `con_string` variable to your desired connection string. Similarly, it takes any sql you enter, so this isn't something you would use to deploy [a public facing anything](http://xkcd.com/327/) — it's meant as an internal tool to help query datasets, particulary for exploratory analysis.
 
 ````
 http://localhost:3001?db=my_database_name&SELECT * FROM my_table
