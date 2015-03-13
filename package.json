@@ -4,7 +4,8 @@
   "description": "A thin json api around one or many postgres databases.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -23,5 +24,6 @@
     "http": "0.0.0",
     "pg": "^4.3.0",
     "url": "^0.10.3"
-  }
+  },
+  "devDependencies": {}
 }
