@@ -12,7 +12,7 @@ http://localhost:3001?db=my_database_name&SELECT * FROM my_table
 Start this server with `node server.js`. You could use [forever](https://github.com/foreverjs/forever) to run it continually or set it up in a [tmux](http://tmux.sourceforge.net/) window, which you can also brew install if you don't want to run that installer.
 
 
-**server.js** looks like this:
+**server.js** looks like this. If you see any improvements, pull requests welcome!
 
 ````js
 var http 	= require('http');
@@ -67,3 +67,7 @@ var server = http.createServer(function(req, res) {
 
 server.listen(3001);
 ````
+
+### License
+
+MIT
