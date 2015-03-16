@@ -3,11 +3,19 @@ Postgres json api
 
 A thin json api around one or many postgres databases. Adapted from [brianc](https://github.com/brianc/node-postgres/wiki/Example).
 
-Send it a URL such as the one below and return a json response. Specify which database you want to connect to along with a query. It requires a superuser named `postgres`, which you can create with `createuser -s -r postgres`, or change the `con_string` variable to your desired connection string. Similarly, it takes any sql you enter, so this isn't something you would use to deploy [a public facing anything](http://xkcd.com/327/) — it's meant as an internal tool to help query datasets, particulary for exploratory analysis.
+Send it a URL such as the one below and return a json response. Specify which database you want to connect to along with a query. 
 
 ````
 http://localhost:3001?db=my_database_name&SELECT * FROM my_table
 ````
+
+Out of the box, it's set to use a superuser named `postgres`, which you can create with `createuser -s -r postgres`.
+
+If you want to query under a different user/role change the `con_string` variable to your desired connection string with the name of that role. Setting up a different role would be a good idea if you wanted to restrict permissions so that users couldn't easily drop tables or alter the database in a damagine way.
+
+If you're logged in as a superuser, it will take any sql you enter, which has [some downsides](http://xkcd.com/327/). This script is meant as a simple wrapper to get you started, so the configuratoin is up to you.
+
+### Running the server
 
 Start this server with `node server.js`. You could use [forever](https://github.com/foreverjs/forever) to run it continually or set it up in a [tmux](http://tmux.sourceforge.net/) window, which you can also brew install if you don't want to run that installer.
 
