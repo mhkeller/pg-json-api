@@ -6,7 +6,7 @@ A thin json api around one or many postgres databases. Adapted from [brianc](htt
 Send it a URL such as the one below and return a json response. Specify which database you want to connect to along with a query. 
 
 ````
-http://localhost:3001?db=my_database_name&SELECT * FROM my_table
+http://localhost:3001?db=my_database_name&q=SELECT * FROM my_table
 ````
 
 Out of the box, it's set to use a superuser named `postgres`, which you can create with `createuser -s -r postgres`.
