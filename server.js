@@ -2,6 +2,8 @@ var http 	= require('http');
 var pg 		= require('pg');
 var url 	= require('url');
 
+var port = 3101;
+
 var server = http.createServer(function(req, res) {
 	var url_parts 	= url.parse(req.url, true),
 		query 		= url_parts.query,
@@ -30,13 +32,14 @@ var server = http.createServer(function(req, res) {
 				handleError(err);
 
 				// Log date
-				console.log(new Date()); 
+				console.log(new Date(), sql_query);
 				client.query(sql_query, function(err, result) {
 					// handle an error from the query
 					if(handleError(err)) return;
 
 					// return the client to the connection pool for other requests to reuse
 					done();
+			    res.setHeader("Access-Control-Allow-Origin", "*");
 					res.writeHead(200, {'content-type': 'application/json'});
 					res.end(JSON.stringify(result.rows));
 				});
@@ -48,4 +51,6 @@ var server = http.createServer(function(req, res) {
 
 })
 
-server.listen(3001);
+
+server.listen(port);
+console.log('Listening on port', port);
