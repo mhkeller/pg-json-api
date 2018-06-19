@@ -23,9 +23,10 @@ var server = http.createServer(function(req, res) {
 					// instead of simply returning it to be reused.
 					// In this case, if we have successfully received a client (truthy)
 					// then it will be removed from the pool.
-					done(client);
+					res.setHeader("Access-Control-Allow-Origin", "*");
 					res.writeHead(500, {'content-type': 'text/plain'});
-					res.end('Oh no! ' + err);
+					res.end('Error:' + err);
+					done(client);
 					return true;
 				};
 
@@ -35,7 +36,7 @@ var server = http.createServer(function(req, res) {
 				console.log(new Date(), sql_query);
 				client.query(sql_query, function(err, result) {
 					// handle an error from the query
-					if(handleError(err)) return;
+					if(handleError(err)) return
 
 					// return the client to the connection pool for other requests to reuse
 					done();
